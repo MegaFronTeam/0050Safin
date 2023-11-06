@@ -1,30 +1,102 @@
 // start .headerBlock
 .headerBlock {
-	// --sPT: #{rem()};
-	// --sPB: #{rem()};
-	// --sTPB: #{rem()}; 
-	min-height: 100vh;
-	min-height: calc(var(--vh, 1vh) * 100);
-	
-	
-	&__row{
-		// --bs-gutter-x: #{rem()};
-		--bs-gutter-y: var(--bs-gutter-x);
-
+	--sPT: #{rem(8)};
+	--sPB: #{rem(40)};
+	--sTPB: #{rem(0)}; 
+	min-height: rem(384);
+	display: flex;
+	background-image: linear-gradient(90deg, #040404 0%, #0B0B0B 100%);
+	// min-height: calc(var(--vh, 1vh) * 100 - rem(45));
+	@include media-breakpoint-up(md) {
+		min-height: rem(600);
+	}
+	@include media-breakpoint-up(lg) {
+		--sPT: #{rem(80)};
+		--sPB: #{rem(80)};
+		min-height: rem(800);
+		// min-height: calc(var(--vh, 1vh) * 100 - rem(77));
+	}
+	picture {
+		z-index: -1;
+		width: 100%;
+		position: absolute;
+		top: 0;
+		left: 50%;
+		transform: translateX(-50%);
+		@include media-breakpoint-up(md) {
+			height: 100%;
+			top: 50%;
+			transform: translate(-50%, -50%);
+		}
+		img {
+			height: 100%;
+			display: block;
+			text-align: center;
+			margin-left: auto;
+			margin-right: auto;
+			max-width: none;
+		}
+	}
+	&__container {
+		flex-grow: 1;
+    display: flex;
+    align-items: flex-end;
 	}
 	.section-title{
-		
+		max-width: rem(134);
+		margin-left: auto;
+		margin-bottom: auto;
+		display: block;
+    width: 100%;
+		@include media-breakpoint-up(md) {
+			max-width: rem(318);
+			margin-bottom: rem(130);
+		}
+		@include media-breakpoint-up(lg) {
+			margin-right: rem(53);
+			max-width: rem(438);
+			margin-bottom: 0;
+		}
+		h1 {
+			font-size: rem(14);
+			font-weight: 500;
+			line-height: 1.10;
+			margin-bottom: rem(9);
+			@include media-breakpoint-up(md) {
+				font-size: rem(25.4);
+			}
+			@include media-breakpoint-up(lg) {
+				font-size: rem(32);
+			}
+			span {
+				display: block;
+				max-width: max-content;
+				margin-left: auto;
+				font-weight: 800;
+				line-height: 1.10;
+				text-transform: uppercase;
+				font-size: rem(40);
+				@include media-breakpoint-up(md) {
+					font-size: rem(94);
+				}
+				@include media-breakpoint-up(lg) {
+					font-size: rem(118);
+				}
+			}
+		}
+		p {
+			margin-bottom: 0;
+			max-width: rem(209);
+			margin-left: auto;
+			font-size: rem(10);
+			font-weight: 500;
+			line-height: 1.3;
+			color: rgba(255, 255, 255, 0.30);
+			@include media-breakpoint-up(md) {
+				font-size: rem(16);
+			}
+		}
 	}
-	&__col{
-
-	}
-	&__item{
-
-	}
-	&__slide{
-		height: auto;
-	}
-
 	@include media-breakpoint-up(xl) {}
 
 	@include media-breakpoint-up(lg) {}

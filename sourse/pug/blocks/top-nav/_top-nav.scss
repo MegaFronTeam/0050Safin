@@ -2,27 +2,28 @@
 	// --sPT: #{rem()};
 	// --sPB: #{rem()};
 	// --sTPB: #{rem()};
+	padding: rem(17.5) 0;
+	background-color: #000;
+	@include media-breakpoint-up(lg) {
+		padding: rem(22) 0;
+	}
 	&__row{
-		// --bs-gutter-x: #{rem()};
-		// @include media-breakpoint-up(md) {
-			--bs-gutter-y: var(--bs-gutter-x);
-		// }
-
+		--bs-gutter-x: #{rem(25)};
+		// --bs-gutter-y: 0;
+		align-items: center;
 	}
-	.section-title{
-		
+	&__col {
+		@include media-breakpoint-down(lg) {
+			margin: 0;
+			padding: 0;
+		}
 	}
-	&__col{
-
+	&__link {
+		color: #fff;
+		&:hover {
+			color: $primary;
+		}
 	}
-	&__item{
-
-	}
-	&__slide{
-		height: auto;
-	}
-
-
 	@include media-breakpoint-up(sm) {}
 	
 	@include media-breakpoint-up(xs) {}

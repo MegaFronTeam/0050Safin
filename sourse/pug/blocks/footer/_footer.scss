@@ -1,9 +1,13 @@
 .footer {
-		
 	margin-top: auto;
-// --sPT: #{rem()};
-	// --sPB: #{rem()};
+	--sPT: #{rem(56)};
+	--sPB: #{rem(27)};
 	// --sTPB: #{rem()};
+	background-image: radial-gradient(70.29% 48.76% at 51.87% 57.72%, #373739 0%, #000 100%);
+	@include media-breakpoint-up(lg) {
+		--sPT: #{rem(71)};
+		--sPB: #{rem(47)};
+	}
 	&__row{
 		// --bs-gutter-x: #{rem()};
 		--bs-gutter-y: var(--bs-gutter-x);

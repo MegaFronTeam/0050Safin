@@ -22,12 +22,16 @@ mixin top-nav()
 	+b.top-nav.block-with-lazy
 		.container
 			+e.row.row
-				.col.order-lg-0.order-last
+				+e.col.col-auto.col-lg.ms-auto
 					.menu-mobile.menu-mobile--js
 						.menu-mobile__inner
 							//- +menu-toggle()
 							+mnu()
-					
-				.col-auto.d-lg-none
+							+e.link-wrap.d-lg-none
+								+e.link(href='#'): +icon('whatsapp')
+								+e.link(href='#'): +icon('telegram')
+				.col-auto.d-none.d-lg-block: +e.link(href='#'): +icon('whatsapp')
+				.col-auto.d-none.d-lg-block: +e.link(href='#'): +icon('telegram')
+				.col-auto.d-lg-none.ms-auto
 					+menu-toggle()
 	// end top-nav

@@ -1,0 +1,11 @@
+mixin sAdvantages(data)
+	// start sAdvantages
+	+b.sAdvantages.section#sAdvantages&attributes(attributes)
+		.container
+			mixin item(text)
+				+e.item: p!= text
+			+e.row.row
+				.col-sm: +item('Выход на новый уровень мышления')
+				.col-sm: +item('Качественное улучшение жизни')
+				.col-sm: +item('Прямой доступ к&nbsp;управлению судьбой')
+	// end sAdvantages
