@@ -27,11 +27,13 @@ mixin top-nav()
 						.menu-mobile__inner
 							//- +menu-toggle()
 							+mnu()
-							+e.link-wrap.d-lg-none
-								+e.link(href='#'): +icon('whatsapp')
-								+e.link(href='#'): +icon('telegram')
-				.col-auto.d-none.d-lg-block: +e.link(href='#'): +icon('whatsapp')
-				.col-auto.d-none.d-lg-block: +e.link(href='#'): +icon('telegram')
+							+soc.d-lg-none
+							//- +e.link-wrap.d-lg-none
+							//- 	+e.link(href='#'): +icon('whatsapp')
+							//- 	+e.link(href='#'): +icon('telegram')
+				.col-auto.d-none.d-lg-block: +soc
+				//- .col-auto.d-none.d-lg-block: +e.link(href='#'): +icon('whatsapp')
+				//- .col-auto.d-none.d-lg-block: +e.link(href='#'): +icon('telegram')
 				.col-auto.d-lg-none.ms-auto
 					+menu-toggle()
 	// end top-nav

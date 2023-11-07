@@ -5,9 +5,9 @@
 	--sPB: #{rem(60)};
 	--sTPB: #{rem(37)};
 	@include media-breakpoint-up(lg) {
-		--sPT: #{rem(104)};
+		--sPT: #{rem(101.800)};
 		--sPB: #{rem(104)};
-		--sTPB: #{rem(71)};
+		--sTPB: #{rem(64.400)};
 	}
 	&__row{
 		// --bs-gutter-x: #{rem()};
@@ -17,7 +17,7 @@
 	.section-title{
 		.h4 {
 			font-weight: 500;
-			line-height: 0.8;
+			line-height: 1.16;
 			max-width: rem(550);
 		}
 	}
@@ -48,7 +48,7 @@
 			@include media-breakpoint-up(md) {
 				--bs-btn-font-size: #{rem(18)};
 
-				margin-top: rem(6);
+				margin-top: rem(14.800);
 			}
 		}
 	}

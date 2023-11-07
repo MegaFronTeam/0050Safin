@@ -9,21 +9,118 @@
 		--sPB: #{rem(47)};
 	}
 	&__row{
-		// --bs-gutter-x: #{rem()};
-		--bs-gutter-y: var(--bs-gutter-x);
+		--bs-gutter-x: #{rem(20)};
+		--bs-gutter-y: #{rem(45)};
+	}
+	&__name {
+		font-size: rem(38);
+		font-weight: 600;
+		line-height: 1.019;
+		margin-bottom: rem(25);
+		@include media-breakpoint-up(md) {
+			font-size: rem(42);
+		}
+	}
+	&__status {
+		max-width: rem(227);
+		font-size: rem(15);
+		font-weight: 600;
+		line-height: 1.3;
+	}
+	&__wrap {
+		text-align: right;
+		p {
+			font-size: rem(12);
+			line-height: 1.6;
+			margin-bottom: rem(23);
+			@include media-breakpoint-up(lg) {
+				margin-bottom: rem(27.400);
+				br {
+					display: none;
+				}
+			}
+		}
+		a {
+			font-size: rem(14);
+			color: #fff;
+			line-height: 1.6;
+			&:hover {
+				color: $primary;
+			}
+			@include media-breakpoint-up(lg) {
+				font-size: rem(16);
+			}
+		}
+		.row {
+			--bs-gutter-x: #{rem(20)};
+			--bs-gutter-y: #{rem(27)};
+			justify-content: flex-end;
+			margin-bottom: rem(23);
+			flex-direction: column;
+			@include media-breakpoint-up(lg) {
+				margin-bottom: rem(13.600);
+				align-items: center;
+				flex-direction: row;
+			}
+			@include media-breakpoint-up(xxl) {
+				margin-right: rem(9);
+			}
+		}
+		.soc {
+			--bs-gutter-x: #{rem(10.8)};
 
+			justify-content: flex-end;
+		}
 	}
-	.section-title{
-		
+	&__link {
+		display: inline-block;
+		text-decoration: underline;
+		margin-bottom: rem(15);
+		margin-right: rem(25);
 	}
-	&__col{
-
+	&__warning {
+		font-size: rem(12);
+		line-height: 1.6;
+		margin-bottom: 0;
+		max-width: rem(480);
+		margin-left: auto;
+		@include media-breakpoint-up(lg) {
+			margin-bottom: rem(15);
+		}
 	}
-	&__item{
-
+	&__site {
+		font-size: rem(14);
+		color: #E2D1BD;
+		display: none;
+		align-items: center;
+		justify-content: flex-end;
+		@include media-breakpoint-up(lg) {
+			display: flex;
+		}
+		.icon {
+			color: #E2D1BD;
+			font-size: rem(28);
+			flex: 0 0 auto;
+		}
+		a {
+			color: $primary;
+			font-weight: 600;
+			line-height: 1.6;
+			text-decoration-line: underline;
+			&:hover {
+				color: #fff;
+			}
+		}
 	}
-	&__slide{
-		height: auto;
+	.menu {
+		@include roww('18px', '17px', m);
+		justify-content: center;
+		@include media-breakpoint-up(xl) {
+			--bs-gutter-x: #{rem(39)};
+		}
+		a {
+			padding: 0;
+		}
 	}
 // 
 @include media-breakpoint-up(xl) {}

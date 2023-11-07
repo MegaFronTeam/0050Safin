@@ -27,6 +27,11 @@
 	font-size:calc( #{$h} / #{$rfs-rem-value} * 1rem);
 	width: calc(24 / #{$h} *1em );
 }
+.icon-site {
+	$h: 28;
+	font-size:calc( #{$h} / #{$rfs-rem-value} * 1rem);
+	width: calc(26 / #{$h} *1em );
+}
 .icon-telegram {
 	$h: 27;
 	font-size:calc( #{$h} / #{$rfs-rem-value} * 1rem);

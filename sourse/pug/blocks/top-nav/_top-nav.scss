@@ -24,6 +24,12 @@
 			color: $primary;
 		}
 	}
+	.soc {
+		--bs-gutter-x: #{rem(25)};
+		.icon {
+			font-size: rem(27);
+		}
+	}
 	@include media-breakpoint-up(sm) {}
 	
 	@include media-breakpoint-up(xs) {}

@@ -166,17 +166,17 @@
 				font-size: rem(14);
 			}
 		}
-		.top-nav__link-wrap {
+		.soc{
 			position: absolute;
 			right: rem(25);
 			bottom: rem(33);
-			@include roww('25px', '', m);
+			// @include roww('25px', '', m);
 		}
-		.top-nav__link {
-			color: #fff;
-			&:hover {
-				color: $primary;
-			}
-		}
+		// .top-nav__link {
+		// 	color: #fff;
+		// 	&:hover {
+		// 		color: $primary;
+		// 	}
+		// }
 	}
 }

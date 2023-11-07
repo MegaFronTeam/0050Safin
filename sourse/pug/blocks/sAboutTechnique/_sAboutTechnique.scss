@@ -8,8 +8,8 @@
 	overflow: hidden;
 	@include media-breakpoint-up(lg) {
 		--sPT: #{rem(139)};
-		--sPB: #{rem(137.400)};
-		--sTPB: #{rem(107.400)};
+		--sPB: #{rem(144)};
+		--sTPB: #{rem(83.200)};
 	}
 	&__container {
 		position: relative;
