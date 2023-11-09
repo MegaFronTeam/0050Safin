@@ -6,12 +6,13 @@ include ../blocks/sContent/_sContent.pug
  
 include ../blocks/sContact/_sContact.pug
 include ../blocks/sForm/_sForm.pug
-include ../blocks/sForm/_sForm.pug
+
+include ../blocks/sAbout/_sAbout.pug
 //- include ../blocks/sCatalog/_sCatalog.pugg
 
 block variables
 	- let  mainPage= 'main-page' 
-	- let  bg= ''
+	- let  bg= 'about.jpg'
 
 block title
 	- let  title= "О мастере"
@@ -22,7 +23,7 @@ block pagecontent
 	
 	+parts('header')
 	main 
-		//- 
+		+sAbout
 		+sContact
 	+parts('footer')
       
