@@ -8,15 +8,14 @@ include ../blocks/sContact/_sContact.pug
 include ../blocks/sForm/_sForm.pug
 include ../blocks/sForm/_sForm.pug
 
-include ../blocks/sAboutTechnique/_sAboutTechnique.pug
-include ../blocks/sMethod/_sMethod.pug
+include ../blocks/s404/_s404.pug
 
 block variables
 	- let  mainPage= 'main-page' 
-	- let  bg= 'method.jpg'
+	- let  bg= '404.jpg'
 
 block title
-	- let  title= "Методы и принципы"
+	- let  title= "404"
 	title= title
 block pagecontent
 	//- +mob-mnu()
@@ -24,9 +23,7 @@ block pagecontent
 	
 	+parts('header')
 	main 
-		+sAboutTechnique2
-		+sMethod
-		+sContact
+		+s404
 	+parts('footer')
       
 

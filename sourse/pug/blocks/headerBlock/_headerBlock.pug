@@ -1,11 +1,11 @@
 mixin headerBlock()
 	// start headerBlock
 	+b.headerBlock.bg-wrap.section#headerBlock&attributes(attributes)
-		picture
-			source(media="(min-width: 768px)", srcset="img/headerBlock-bg.jpg")
-			img(src="img/headerBlock-bg-sm.jpg", alt="")
 		//- +img('img/headerBlock-bg.jpg', 'bg').picture-bg
 		+e.container.container
+			picture
+				source(media="(min-width: 768px)", srcset="img/headerBlock-bg.jpg")
+				img(src="img/headerBlock-bg-sm.jpg", alt="")
 			+b.section-title
 				h1 Сделай<br>из препятствия
 					span СИЛУ

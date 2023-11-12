@@ -1,0 +1,66 @@
+// start .s404
+.s404 {
+	--sPT: #{rem(74)};
+	--sPB: #{rem(87)};
+	// --sTPB: #{rem()};
+	position: relative;
+	text-align: center;
+	@include media-breakpoint-up(lg) {
+		--sPT: #{rem(101.800)};
+		--sPB: #{rem(87)};
+	}
+	&:before {
+		content: '';
+		position: absolute;
+		display: block;
+		width: 100%;
+		height: 100%;
+		left: 0;
+		top: 0;
+		background-color: rgba(0, 0, 0, 0.70);
+		z-index: -1;
+	}
+	img {
+		z-index: -2;
+	}
+	h1 {
+		color: $primary;
+		font-size: rem(100);
+		font-weight: 700;
+		line-height: 0.8;
+		margin-bottom: rem(27);
+		@include media-breakpoint-up(lg) {
+			font-size: rem(160);
+			margin-bottom: rem(52.600);
+		}
+	}
+	.h4 {
+		line-height: 1.2;
+		margin-bottom: rem(34);
+		@include media-breakpoint-up(lg) {
+			line-height: 0.8;
+			margin-bottom: rem(77.400);
+		}
+	}
+	p {
+		max-width: rem(520.594);
+		margin: 0 auto rem(26) auto;
+		line-height: 1.6;
+		@include media-breakpoint-up(lg) {
+			margin: 0 auto rem(53) auto;
+		}
+		&:last-of-type {
+			margin-bottom: 0;
+		}
+		a {
+			text-decoration: underline;
+		}
+	}
+	@include media-breakpoint-up(xl) {}
+	@include media-breakpoint-up(lg) {}
+	@include media-breakpoint-up(md) {}
+	@include media-breakpoint-up(sm) {}
+	@include media-breakpoint-between(md, xl) {}
+	@include media-breakpoint-only(xl) {}
+	@include media-breakpoint-down(xl) {}
+} // end.s404

@@ -1,7 +1,9 @@
 mixin sContact()
 	// start sContact
 	+b.SECTION.sContact.section#sContact&attributes(attributes)
-		.container
+		+e.container.container
+			.img
+				+img('img/sContact-img-1.png')
 			+b.section-title
 				.h4 Чтобы попасть к&nbsp;мастеру, запишитесь на&nbsp;диагностическую сессию удобным для вас способом
 			+form-wrap

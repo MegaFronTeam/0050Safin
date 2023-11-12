@@ -5,7 +5,7 @@
 	padding: rem(17.5) 0;
 	background-color: #000;
 	@include media-breakpoint-up(lg) {
-		padding: rem(22) 0;
+		padding: rem(24.200) 0;
 	}
 	&__row{
 		--bs-gutter-x: #{rem(25)};

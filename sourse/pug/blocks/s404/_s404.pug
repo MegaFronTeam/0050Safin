@@ -1,0 +1,10 @@
+mixin s404(data)
+	// start s404
+	+b.SECTION.s404.bg-wrap.section#s404&attributes(attributes)
+		+img('img/404-bg.jpg', 'bg').picture-bg
+		.container
+			h1 404
+			.h4 СТРАНИЦА НЕ НАЙДЕНА
+			p К&nbsp;сожалению, мы&nbsp;не&nbsp;смогли найти страницу, которую вы&nbsp;искали. Возможно, она была удалена, перемещена или никогда не&nbsp;существовала.
+			p Вернитесь #[a(href="/") на&nbsp;главную страницу] и&nbsp;повторите свой запрос
+	// end s404
