@@ -155,9 +155,95 @@ class JSCCommon {
 
 	static inputMask() {
 		// mask for input
-		let InputTel = [].slice.call(document.querySelectorAll('input[type="tel"]'));
-		InputTel.forEach(element => element.setAttribute("pattern", "[+][0-9]{1}[(][0-9]{3}[)][0-9]{3}-[0-9]{2}-[0-9]{2}"));
-		Inputmask({ "mask": "+9(999)999-99-99", showMaskOnHover: false }).mask(InputTel);
+		// let InputTel = [].slice.call(document.querySelectorAll('input[type="tel"]'));
+		// InputTel.forEach(element => element.setAttribute("pattern", "[+][0-9]{1}[(][0-9]{3}[)][0-9]{3}-[0-9]{2}-[0-9]{2}"));
+		// Inputmask({ "mask": "+9(999)999-99-99", showMaskOnHover: false }).mask(InputTel);
+		var phoneInputs = document.querySelectorAll('.phone-new');
+
+		var getInputNumbersValue = function (input) {
+			// Return stripped input value — just numbers
+			return input.value.replace(/\D/g, '');
+		}
+
+		var onPhonePaste = function (e) {
+			var input = e.target,
+				inputNumbersValue = getInputNumbersValue(input);
+			var pasted = e.clipboardData || window.clipboardData;
+			if (pasted) {
+				var pastedText = pasted.getData('Text');
+				if (/\D/g.test(pastedText)) {
+					// Attempt to paste non-numeric symbol — remove all non-numeric symbols,
+					// formatting will be in onPhoneInput handler
+					input.value = inputNumbersValue;
+					return;
+				}
+			}
+		}
+
+		var onPhoneInput = function (e) {
+			var input = e.target;
+			// для плюса делаем исключение
+			if (input.value == '+' && input.value.length == 1) {
+				// console.group(1);
+				// console.log(input.value)
+				// console.log(input.value.length)
+				// console.groupEnd();
+				return;
+			}
+			var inputNumbersValue = getInputNumbersValue(input),
+				selectionStart = input.selectionStart,
+				formattedInputValue = "";
+
+			// console.group(2);
+			// console.log(inputNumbersValue)
+			// console.groupEnd();
+
+			if (!inputNumbersValue) {
+				return input.value = "";
+			}
+
+			if (input.value.length != selectionStart) {
+				// Editing in the middle of input, not last symbol
+				if (e.data && /\D/g.test(e.data)) {
+					// Attempt to input non-numeric symbol
+					input.value = inputNumbersValue;
+				}
+				return;
+			}
+
+			if (["7", "8", "9"].indexOf(inputNumbersValue[0]) > -1) {
+				if (inputNumbersValue[0] == "9") inputNumbersValue = "7" + inputNumbersValue;
+				var firstSymbols = (inputNumbersValue[0] == "8") ? "8" : "+7";
+				formattedInputValue = input.value = firstSymbols + " ";
+				if (inputNumbersValue.length > 1) {
+					formattedInputValue += '(' + inputNumbersValue.substring(1, 4);
+				}
+				if (inputNumbersValue.length >= 5) {
+					formattedInputValue += ') ' + inputNumbersValue.substring(4, 7);
+				}
+				if (inputNumbersValue.length >= 8) {
+					formattedInputValue += '-' + inputNumbersValue.substring(7, 9);
+				}
+				if (inputNumbersValue.length >= 10) {
+					formattedInputValue += '-' + inputNumbersValue.substring(9, 11);
+				}
+			} else {
+				formattedInputValue = '+' + inputNumbersValue.substring(0, 16);
+			}
+			input.value = formattedInputValue;
+		}
+		var onPhoneKeyDown = function (e) {
+			// Clear input after remove last symbol
+			var inputValue = e.target.value.replace(/\D/g, '');
+			if (e.keyCode == 8 && inputValue.length == 1) {
+				e.target.value = "";
+			}
+		}
+		for (var phoneInput of phoneInputs) {
+			phoneInput.addEventListener('keydown', onPhoneKeyDown);
+			phoneInput.addEventListener('input', onPhoneInput, false);
+			phoneInput.addEventListener('paste', onPhonePaste, false);
+		}
 	}
 	// /inputMask
 	static sendForm() {
@@ -176,26 +262,53 @@ class JSCCommon {
 		$(document).on('submit', "form", function (e) {
 			e.preventDefault();
 			const th = $(this);
-			var data = th.serialize();
-			th.find('.utm_source').val(decodeURIComponent(gets['utm_source'] || ''));
-			th.find('.utm_term').val(decodeURIComponent(gets['utm_term'] || ''));
-			th.find('.utm_medium').val(decodeURIComponent(gets['utm_medium'] || ''));
-			th.find('.utm_campaign').val(decodeURIComponent(gets['utm_campaign'] || ''));
+			const formInpus = {}
+			formInpus.name = th.find('[name="text"]').val() || '';
+			formInpus.select = th.find('[name="select"]').val() || '';
+			formInpus.tel = th.find('[name="tel"]').val() ;
+	
+			formInpus.utm_source = decodeURIComponent(gets['utm_source'] || '');
+			formInpus.utm_term = decodeURIComponent(gets['utm_term'] || '');
+			formInpus.utm_medium = decodeURIComponent(gets['utm_medium'] || '');
+			formInpus.utm_campaign = decodeURIComponent(gets['utm_campaign'] || '');
+	
+			
+			var data = new FormData(th[0]); 
+	
+			for (const key in formInpus) {
+				if (Object.hasOwnProperty.call(formInpus, key)) {
+					const element = formInpus[key];
+					
+					data.append(`${key}`, element);
+					console.log(`${key}`, element)
+				}
+			}
+	
+			console.log(data) 
 			$.ajax({
 				url: 'action.php',
+				dataType: 'text',  // what to expect back from the PHP script, if anything
+				cache: false,
+				contentType: false,
+				processData: false,
 				type: 'POST',
 				data: data,
 			}).done(function (data) {
-
-				Fancybox.close();
-				Fancybox.show([{ src: "#modal-thanks", type: "inline" }]);
-				// window.location.replace("/thanks.html");
+ 
+				// Fancybox.close();
+				// Fancybox.show([{ src: "#modal-thanks", type: "inline" }]);
+				// $.fancybox.open({
+				// 	src: '#modal-thanks',
+				// 	type: 'inline'
+				// }); 
+				console.log('ok')
+	
 				setTimeout(function () {
 					// Done Functions
 					th.trigger("reset");
 					// $.magnificPopup.close();
-					// ym(53383120, 'reachGoal', 'zakaz');
-					// yaCounter55828534.reachGoal('zakaz');
+					// $.fancybox.close();
+	
 				}, 4000);
 			}).fail(function () { });
 
@@ -274,33 +387,6 @@ class JSCCommon {
 					$(this).toggleClass('active');
 				});
 		});
-		// let parents = document.querySelectorAll('.dd-group-js');
-		// for (let parent of parents) {
-		// 	if (parent) {
-		// 		// childHeads, kind of funny))
-		// 		let ChildHeads = parent.querySelectorAll('.dd-head-js:not(.disabled)');
-		// 		$(ChildHeads).click(function () {
-		// 			let clickedHead = this;
-
-		// 			$(ChildHeads).each(function () {
-		// 				if (this === clickedHead) {
-		// 					//parent element gain toggle class, style head change via parent
-		// 					$(this.parentElement).toggleClass('active');
-		// 					$(this.parentElement).find('.dd-content-js').slideToggle(function () {
-		// 						$(this).toggleClass('active');
-		// 					});
-		// 				}
-		// 				else {
-		// 					$(this.parentElement).removeClass('active');
-		// 					$(this.parentElement).find('.dd-content-js').slideUp(function () {
-		// 						$(this).removeClass('active');
-		// 					});
-		// 				}
-		// 			});
-
-		// 		});
-		// 	}
-		// }
 	}
 
 	static imgToSVG() {
@@ -362,7 +448,7 @@ class JSCCommon {
 		// this.tabscostume('tabs');
 		this.mobileMenu();
 		this.inputMask();
-		// this.sendForm();
+		this.sendForm();
 		this.heightwindow();
 		this.makeDDGroup();
 		this.disabledBtn();
