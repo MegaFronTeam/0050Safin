@@ -22,6 +22,12 @@
 						wrap.insertAdjacentHTML('afterend', text);
 						wrap.previousElementSibling.remove()
 						wrap.remove();
+			
+						if(elem === 'footer') {
+							let now = new Date();
+							let currentYear = document.querySelector('.footer__wrap p span');
+							if (currentYear) currentYear.innerText = now.getFullYear();
+						}
 					});
 			}
 		</script>

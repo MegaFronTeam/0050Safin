@@ -109,6 +109,10 @@ body {
 }
 main{
 	flex-grow: 1;
+	padding-top: rem(45);
+	@include media-breakpoint-up(lg) {
+		padding-top: rem(75);
+	}
 }
 // .main-wrapper__inner{
 // 	// overflow-x: hidden;
