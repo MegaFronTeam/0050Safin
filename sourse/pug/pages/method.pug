@@ -1,5 +1,12 @@
 extends ../layout/main.pug
 
+include ../blocks/header/_header.pug
+include ../blocks/topLine/_topLine.pug
+include ../blocks/top-nav/_top-nav.pug 
+
+include ../blocks/footer/_footer.pug
+include ../blocks/modal/_modal.pug
+
 //- include ../blocks/headerBlock/_headerBlock.pug
 include ../blocks/sForm/_sForm.pug
 include ../blocks/sContent/_sContent.pug
@@ -12,7 +19,7 @@ include ../blocks/sAboutTechnique/_sAboutTechnique.pug
 include ../blocks/sMethod/_sMethod.pug
 
 block variables
-	- let  mainPage= 'main-page' 
+	- let  mainPage= '' 
 	- let  bg= 'method.jpg'
 
 block title
@@ -22,12 +29,15 @@ block pagecontent
 	//- +mob-mnu()
 	
 	
-	+parts('header')
+	//- +parts('header')
+	+header()
+		+top-nav()
 	main 
 		+sAboutTechnique2
 		+sMethod
 		+sContact('Заявка со страницы "Методы и принципы"')
-	+parts('footer')
+	+footer()
+	//- +parts('footer')
       
 
 

@@ -13,29 +13,65 @@
 <link href="https://fonts.googleapis.com/css2?family=Manrope:wght@400;500;600;700;800&family=Montserrat:wght@500;600&display=swap" rel="stylesheet">
 		<link href="css/custom-bootstrap.min.css" rel="stylesheet"/>
 		<link href="css/main.min.css" rel="stylesheet"/>
-		<script>
-			function addBlock(elem) {
-				fetch(`parts/${elem}.html`)
-					.then(response => response.text())
-					.then( text => {
-						const wrap = document.querySelector(`#${elem}Wrap`);
-						wrap.insertAdjacentHTML('afterend', text);
-						wrap.previousElementSibling.remove()
-						wrap.remove();
-			
-						if(elem === 'footer') {
-							let now = new Date();
-							let currentYear = document.querySelector('.footer__wrap p span');
-							if (currentYear) currentYear.innerText = now.getFullYear();
-						}
-					});
-			}
-		</script>
 	</head>
-	<body class="main-page" data-bg="">
+	<body data-bg="">
 		<div class="main-wrapper">
-			<script>addBlock(`header`)</script>
-			<div id="headerWrap"></div>
+			<!-- start header-->
+			<header class="header" id="header">
+				<!-- start top-nav-->
+				<div class="top-nav block-with-lazy">
+					<div class="container">
+						<div class="top-nav__row row">
+							<div class="top-nav__col col-auto col-lg ms-auto">
+								<div class="menu-mobile menu-mobile--js">
+									<div class="menu-mobile__inner">
+										<nav>
+											<ul class="menu" itemscope="itemscope" itemtype="http://schema.org/SiteNavigationElement">
+												<li class="menu-item" itemprop="item"><a href="/" itemprop="url">Главная</a></li>
+												<li class="menu-item" itemprop="item"><a href="/about.html" itemprop="url">О мастере</a></li>
+												<li class="menu-item" itemprop="item"><a href="/method.html" itemprop="url">Об услуге</a></li>
+												<li class="menu-item" itemprop="item"><a href="/contact.html" itemprop="url">Контакты</a></li>
+											</ul>
+										</nav>
+										<div class="soc d-lg-none">
+											<a class="soc__item" href="#" target="_blank">
+												<svg class="icon icon-whatsapp ">
+													<use xlink:href="img/svg/sprite.svg#whatsapp"></use>
+												</svg>
+											</a>
+											<a class="soc__item" href="#" target="_blank">
+												<svg class="icon icon-telegram ">
+													<use xlink:href="img/svg/sprite.svg#telegram"></use>
+												</svg>
+											</a>
+										</div>
+									</div>
+								</div>
+							</div>
+							<div class="col-auto d-none d-lg-block">
+								<div class="soc">
+									<a class="soc__item" href="#" target="_blank">
+										<svg class="icon icon-whatsapp ">
+											<use xlink:href="img/svg/sprite.svg#whatsapp"></use>
+										</svg>
+									</a>
+									<a class="soc__item" href="#" target="_blank">
+										<svg class="icon icon-telegram ">
+											<use xlink:href="img/svg/sprite.svg#telegram"></use>
+										</svg>
+									</a>
+								</div>
+							</div>
+							<div class="col-auto d-lg-none ms-auto">
+								<div class="toggle-menu-mobile toggle-menu-mobile--js d-lg-none"><span></span>
+								</div>
+							</div>
+						</div>
+					</div>
+				</div>
+				<!-- end top-nav-->
+			</header>
+			<!-- end header-->
 			<main> 
 				<!-- start sContact-->
 				<section class="sContact section" id="sContact">
@@ -58,10 +94,10 @@
 								<div class="form-wrap__input-wrap form-group">
 									<select class="form-wrap__input form-select" name="select">
 										<option value="Удобный способ связи">Удобный способ связи</option>
-										<option value=" placeholder 1">placeholder 1</option>
-										<option value=" placeholder 2">placeholder 2</option>
-										<option value=" placeholder 3">placeholder 3</option>
-										<option value=" placeholder 4">placeholder 4</option>
+										<option value="Позвоните мне">Позвоните мне</option>
+										<option value="WhatsApp">WhatsApp</option>
+										<option value="Telegram">Telegram</option>
+										<option value="Email">Email</option>
 									</select>
 								</div>
 								<!-- +e.input-wrap-->
@@ -89,8 +125,59 @@
 				</section>
 				<!-- end sContact-->
 			</main>
-			<script>addBlock(`footer`)</script>
-			<div id="footerWrap"></div>
+			<footer class="footer section">
+				<div class="container">
+					<div class="footer__row row">
+						<div class="col-md col-lg-3">
+							<div class="footer__name">Андрей Сафин
+							</div>
+							<div class="footer__status">Мастер кармических погружений
+							</div>
+						</div>
+						<div class="col-md-auto col-lg-4">
+							<nav>
+								<ul class="menu" itemscope="itemscope" itemtype="http://schema.org/SiteNavigationElement">
+									<li class="menu-item" itemprop="item"><a href="/" itemprop="url">Главная</a></li>
+									<li class="menu-item" itemprop="item"><a href="/about.html" itemprop="url">О мастере</a></li>
+									<li class="menu-item" itemprop="item"><a href="/method.html" itemprop="url">Об услуге</a></li>
+									<li class="menu-item" itemprop="item"><a href="/contact.html" itemprop="url">Контакты</a></li>
+								</ul>
+							</nav>
+						</div>
+						<div class="col-lg-5">
+							<div class="footer__wrap">
+								<p>© <span></span> Андрей Сафин.<br>Мастер кармических погружений.</p>
+								<a class="footer__link" href="#">Политика конфиденциальности 
+								</a>
+								<div class="row">
+									<div class="col-auto"><a href="mailto:lekpoylodro@gmail.com">lekpoylodro@gmail.com</a></div>
+									<div class="col-auto">
+										<div class="soc">
+											<a class="soc__item" href="#" target="_blank">
+												<svg class="icon icon-whatsapp ">
+													<use xlink:href="img/svg/sprite.svg#whatsapp"></use>
+												</svg>
+											</a>
+											<a class="soc__item" href="#" target="_blank">
+												<svg class="icon icon-telegram ">
+													<use xlink:href="img/svg/sprite.svg#telegram"></use>
+												</svg>
+											</a>
+										</div>
+									</div>
+								</div>
+								<div class="footer__warning">*Деятельность организации Meta Platforms Inc, её&nbsp;продуктов Instagram, Facebook, WhatsApp запрещена в&nbsp;Российской Федерации
+								</div>
+								<div class="footer__site"><span>за сайт </span> 
+									<svg class="icon icon-site ">
+										<use xlink:href="img/svg/sprite.svg#site"></use>
+									</svg> <a href="#" target="_blank">Quasabra</a>
+								</div>
+							</div>
+						</div>
+					</div>
+				</div>
+			</footer>
 		</div>
 		<script src="libs/jquery/jquery.min.js"></script>
 		<script src="libs/@fancyapps/ui/fancybox/fancybox.umd.js"> </script>

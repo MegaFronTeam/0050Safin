@@ -1,5 +1,12 @@
 extends ../layout/main.pug
 
+include ../blocks/header/_header.pug
+include ../blocks/topLine/_topLine.pug
+include ../blocks/top-nav/_top-nav.pug 
+
+include ../blocks/footer/_footer.pug
+include ../blocks/modal/_modal.pug
+
 //- include ../blocks/headerBlock/_headerBlock.pug
 include ../blocks/sForm/_sForm.pug
 include ../blocks/sContent/_sContent.pug
@@ -11,7 +18,7 @@ include ../blocks/sAbout/_sAbout.pug
 //- include ../blocks/sCatalog/_sCatalog.pugg
 
 block variables
-	- let  mainPage= 'main-page' 
+	- let  mainPage= '' 
 	- let  bg= 'about.jpg'
 
 block title
@@ -21,11 +28,14 @@ block pagecontent
 	//- +mob-mnu()
 	
 	
-	+parts('header')
+	//- +parts('header')
+	+header
+		+top-nav()
 	main 
 		+sAbout
 		+sContact('Заявка со страницы "О мастере"')
-	+parts('footer')
+	+footer()
+	//- +parts('footer')
       
 
 

@@ -10,8 +10,10 @@ mixin input(placeholder,  t='text', label, inputmode= t, name= t)
 		else if t== "select"
 			+e.SELECT.input.form-select( name= name)&attributes(attributes)
 				option(value= placeholder)= placeholder
-				- for (var x = 1; x < 5; x++)
-					option(value=` placeholder ${x}`)= `placeholder ${x}`
+				option(value=`Позвоните мне`)= `Позвоните мне`
+				option(value=`WhatsApp`)= `WhatsApp`
+				option(value=`Telegram`)= `Telegram`
+				option(value=`Email`)= `Email`
 		else if t=='file'
 			+e.INPUT.input.form-control(inputmode= inputmode name=name type=t)&attributes(attributes)
 			

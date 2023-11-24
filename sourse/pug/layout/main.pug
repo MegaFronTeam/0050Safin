@@ -31,23 +31,23 @@ html(lang="ru")
 		link(type="image/ico", href='img/favicon.ico', rel='shortcut icon') 
 		<meta name="format-detection" content="telephone=no"> 
 		+allcss()
-		script.
-			function addBlock(elem) {
-				fetch(`parts/${elem}.html`)
-					.then(response => response.text())
-					.then( text => {
-						const wrap = document.querySelector(`#${elem}Wrap`);
-						wrap.insertAdjacentHTML('afterend', text);
-						wrap.previousElementSibling.remove()
-						wrap.remove();
+		//- script.
+		//- 	function addBlock(elem) {
+		//- 		fetch(`parts/${elem}.html`)
+		//- 			.then(response => response.text())
+		//- 			.then( text => {
+		//- 				const wrap = document.querySelector(`#${elem}Wrap`);
+		//- 				wrap.insertAdjacentHTML('afterend', text);
+		//- 				wrap.previousElementSibling.remove()
+		//- 				wrap.remove();
 
-						if(elem === 'footer') {
-							let now = new Date();
-							let currentYear = document.querySelector('.footer__wrap p span');
-							if (currentYear) currentYear.innerText = now.getFullYear();
-						}
-					});
-			}
+		//- 				if(elem === 'footer') {
+		//- 					let now = new Date();
+		//- 					let currentYear = document.querySelector('.footer__wrap p span');
+		//- 					if (currentYear) currentYear.innerText = now.getFullYear();
+		//- 				}
+		//- 			});
+		//- 	}
 	block variables
 	//- style.
 	//- 	.loaded_hiding {  opacity: 0; pointer-events: none;  } .loaded_hiding::before { display: none; }

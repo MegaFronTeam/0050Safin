@@ -1,5 +1,12 @@
 extends ../layout/main.pug
 
+include ../blocks/header/_header.pug
+include ../blocks/topLine/_topLine.pug
+include ../blocks/top-nav/_top-nav.pug 
+
+include ../blocks/footer/_footer.pug
+include ../blocks/modal/_modal.pug
+
 include ../blocks/headerBlock/_headerBlock.pug
 include ../blocks/sForm/_sForm.pug
 include ../blocks/sContent/_sContent.pug
@@ -25,7 +32,10 @@ block pagecontent
 	//- +mob-mnu()
 	
 	
-	+parts('header')
+	//- +parts('header')
+
+	+header()
+		+top-nav()
 	main
 		+headerBlock 
 		+sAdvantages
@@ -33,7 +43,8 @@ block pagecontent
 		+sDeliverance
 		+sAboutTechnique
 		+sContact('Заявка с "Главной" страницы')
-	+parts('footer')
+	+footer()
+	//- +parts('footer')
       
 
 

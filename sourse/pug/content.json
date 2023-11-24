@@ -1,5 +1,6 @@
 {
 	"nav":[
+		{ "name":"Главная", "url":"/"},
 		{ "name":"О мастере", "url":"/about.html"},
 		{	"name":"Об услуге", "url":"/method.html"},
 		{"name":"Контакты", "url":"/contact.html"}

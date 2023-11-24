@@ -579,3 +579,13 @@ h4, .h4 {
 		font-size: rem(22);
 	}
 }
+
+.main-page {
+	.menu {
+		li {
+			&:first-child {
+				display: none;
+			}
+		}
+	}
+}
