@@ -110,12 +110,12 @@
 								<input class="utm_term" name="utm_term" type="hidden"/>
 								<input class="utm_medium" name="utm_medium" type="hidden"/>
 								<input class="utm_campaign" name="utm_campaign" type="hidden"/>
-								<div class="form-wrap__input-wrap form-group"><input class="form-wrap__input form-control" inputmode="text" name="text" type="text" placeholder="Ваше имя"/>
+								<div class="form-wrap__input-wrap form-group"><input class="form-wrap__input form-control" inputmode="text" name="name" type="text" placeholder="Ваше имя"/>
 								</div>
 								<!-- +e.input-wrap-->
 								<div class="form-wrap__input-wrap form-group">
-									<select class="form-wrap__input form-select" name="select">
-										<option value="Удобный способ связи">Удобный способ связи</option>
+									<select class="form-wrap__input form-select" name="select" value="typeContact" required="required">
+										<option value="Удобный способ связи" disabled="disabled" selected="selected">Удобный способ связи</option>
 										<option value="Позвоните мне">Позвоните мне</option>
 										<option value="WhatsApp">WhatsApp</option>
 										<option value="Telegram">Telegram</option>
@@ -123,7 +123,7 @@
 									</select>
 								</div>
 								<!-- +e.input-wrap-->
-								<div class="form-wrap__input-wrap form-group"><input class="form-wrap__input form-control phone-new" inputmode="tel" name="tel" type="tel" placeholder="Ваши контактные данные"/>
+								<div class="form-wrap__input-wrap form-group"><input class="form-wrap__input form-control" inputmode="text" name="contact" type="text" placeholder="Ваши контактные данные" required="required"/>
 								</div>
 								<!-- +e.input-wrap-->
 								<button class="btn btn-outline-primary" type="submit">Отправить</button>

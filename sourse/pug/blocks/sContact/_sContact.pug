@@ -7,9 +7,10 @@ mixin sContact(order)
 			+b.section-title
 				.h4 Чтобы попасть к&nbsp;мастеру, запишитесь на&nbsp;диагностическую сессию удобным для вас способом
 			+form-wrap(order)
-				+input('Ваше имя', 'text')
+				+input('Ваше имя', 'text','name')
 				+input('Удобный способ связи', 'select')
-				+input('Ваши контактные данные', 'tel').phone-new
+				+input('Ваши контактные данные', 'text','contact')(required)
+				//- .phone-new
 				button.btn.btn-outline-primary(type="submit") Отправить
 			+e.text *На&nbsp;диагностической сессии определяется объём и&nbsp;стоимость работы
 			+soc

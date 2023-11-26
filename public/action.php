@@ -10,12 +10,9 @@ $mail->Encoding = 'base64';
 $mail->CharSet = 'utf-8';
 
 ///who send 
-// $mail->setFrom('testemailftp@gmail.com','info info');
 $mail->setFrom('info@info.com','info info');
 
-//  $mail->addAddress('testemailftp@gmail.com');
- $mail->addAddress('janis.paberzs18@gmail.com');
-//  $mail->addAddress('wol1414@gmail.com');
+ $mail->addAddress('wol1414@gmail.com');
  // $mail->addAddress('horenkova369@gmail.com');
 // $mail->addAddress('stab@inbox.support');
 
@@ -36,8 +33,13 @@ $html = '
         $html .= ' <tr style="background-color: #f8f8f8;"> <td style="padding: 10px; border: #e9e9e9 1px solid;">Name:</td>   <td style="padding: 10px; border: #e9e9e9 1px solid;">' . $_POST['name'] . '</b></td></tr>';
     }
     
-    if (!empty($_POST['tel'])) {
-        $html .= ' <tr style="background-color: #f8f8f8;"> <td style="padding: 10px; border: #e9e9e9 1px solid;"> Телефон:</td>   <td style="padding: 10px; border: #e9e9e9 1px solid;">' . $_POST['tel'] . '</b></td></tr>';
+    if (!empty($_POST['typeContact'])) {
+        $html .= ' <tr style="background-color: #f8f8f8;"> <td style="padding: 10px; border: #e9e9e9 1px solid;"> Тип связи:</td>   <td style="padding: 10px; border: #e9e9e9 1px solid;">' . $_POST['typeContact'] . '</b></td></tr>';
+    }
+    
+    
+    if (!empty($_POST['contact'])) {
+        $html .= ' <tr style="background-color: #f8f8f8;"> <td style="padding: 10px; border: #e9e9e9 1px solid;"> Контакт:</td>   <td style="padding: 10px; border: #e9e9e9 1px solid;">' . $_POST['contact'] . '</b></td></tr>';
     }
     
     if (!empty($_POST['email'])) {

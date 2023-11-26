@@ -3,13 +3,13 @@ mixin form-head()
 		input(class="order", name='order', type='hidden', value=`Заявка  с сайта`) 
 		block
 
-mixin input(placeholder,  t='text', label, inputmode= t, name= t)
+mixin input(placeholder,  t='text', name= t, inputmode= t )
 	mixin t(t='text',placeholder, name= t)
 		if t== "textarea"
 			+e.TEXTAREA.input.form-control(name=name placeholder=placeholder)
 		else if t== "select"
-			+e.SELECT.input.form-select( name= name)&attributes(attributes)
-				option(value= placeholder)= placeholder
+			+e.SELECT.input.form-select( name= name value="typeContact" required)&attributes(attributes)
+				option(value= placeholder disabled selected)= placeholder
 				option(value=`Позвоните мне`)= `Позвоните мне`
 				option(value=`WhatsApp`)= `WhatsApp`
 				option(value=`Telegram`)= `Telegram`

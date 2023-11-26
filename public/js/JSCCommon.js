@@ -262,53 +262,26 @@ class JSCCommon {
 		$(document).on('submit', "form", function (e) {
 			e.preventDefault();
 			const th = $(this);
-			const formInpus = {}
-			formInpus.name = th.find('[name="text"]').val() || '';
-			formInpus.select = th.find('[name="select"]').val() || '';
-			formInpus.tel = th.find('[name="tel"]').val() ;
-	
-			formInpus.utm_source = decodeURIComponent(gets['utm_source'] || '');
-			formInpus.utm_term = decodeURIComponent(gets['utm_term'] || '');
-			formInpus.utm_medium = decodeURIComponent(gets['utm_medium'] || '');
-			formInpus.utm_campaign = decodeURIComponent(gets['utm_campaign'] || '');
-	
-			
-			var data = new FormData(th[0]); 
-	
-			for (const key in formInpus) {
-				if (Object.hasOwnProperty.call(formInpus, key)) {
-					const element = formInpus[key];
-					
-					data.append(`${key}`, element);
-					console.log(`${key}`, element)
-				}
-			}
-	
-			console.log(data) 
+			var data = th.serialize();
+			th.find('.utm_source').val(decodeURIComponent(gets['utm_source'] || ''));
+			th.find('.utm_term').val(decodeURIComponent(gets['utm_term'] || ''));
+			th.find('.utm_medium').val(decodeURIComponent(gets['utm_medium'] || ''));
+			th.find('.utm_campaign').val(decodeURIComponent(gets['utm_campaign'] || ''));
 			$.ajax({
 				url: 'action.php',
-				dataType: 'text',  // what to expect back from the PHP script, if anything
-				cache: false,
-				contentType: false,
-				processData: false,
 				type: 'POST',
 				data: data,
 			}).done(function (data) {
- 
-				// Fancybox.close();
-				// Fancybox.show([{ src: "#modal-thanks", type: "inline" }]);
-				// $.fancybox.open({
-				// 	src: '#modal-thanks',
-				// 	type: 'inline'
-				// }); 
-				console.log('ok')
-	
+
+				Fancybox.close();
+				Fancybox.show([{ src: "#modal-thanks", type: "inline" }]);
+				// window.location.replace("/thanks.html");
 				setTimeout(function () {
 					// Done Functions
 					th.trigger("reset");
 					// $.magnificPopup.close();
-					// $.fancybox.close();
-	
+					// ym(53383120, 'reachGoal', 'zakaz');
+					// yaCounter55828534.reachGoal('zakaz');
 				}, 4000);
 			}).fail(function () { });
 
