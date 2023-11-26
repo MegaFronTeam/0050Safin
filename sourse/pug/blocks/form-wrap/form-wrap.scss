@@ -10,11 +10,51 @@
 	}
 	&__btn {
 		cursor: pointer;
-		margin-bottom: rem(15);
+		margin-bottom: rem(31);
 	}
 	label {
 		width: 100%;
 		display: block;
+	}
+	&__policy {
+		max-width: max-content;
+		margin-bottom: rem(0);
+		.custom-input {
+			display: flex;
+			align-items: center;
+			padding-left: 0;
+			margin-bottom: 0;
+			&__input {
+				flex: 0 0 auto;
+				margin-left: 0;
+				margin-top: 0;
+				margin-right: rem(15);
+				width: rem(15);
+				height: rem(15);
+				border-radius: 0;
+				background-size: rem(15) rem(15);
+				background-position: center;
+				border-color: $primary;
+				&:checked {
+					background-color: $body-bg;
+					&[type='checkbox'] {
+						--bs-form-check-bg-image: url("data:image/svg+xml,%3Csvg width='15' height='15' viewBox='0 0 15 15' fill='none' xmlns='http://www.w3.org/2000/svg'%3E%3Crect x='0.5' y='0.5' width='14' height='14' stroke='%23D3A876'/%3E%3Cline y1='-0.5' x2='4.72613' y2='-0.5' transform='matrix(0.654944 0.755678 -0.654944 0.755678 4 6.42871)' stroke='%23D3A876'/%3E%3Cline y1='-0.5' x2='4.72613' y2='-0.5' transform='matrix(0.654944 0.755678 -0.654944 0.755678 4 6.42871)' stroke='%23D3A876'/%3E%3Cline y1='-0.5' x2='6.61658' y2='-0.5' transform='matrix(0.654944 -0.755678 0.654944 0.755678 7.0957 10)' stroke='%23D3A876'/%3E%3Cline y1='-0.5' x2='6.61658' y2='-0.5' transform='matrix(0.654944 -0.755678 0.654944 0.755678 7.0957 10)' stroke='%23D3A876'/%3E%3C/svg%3E%0A");
+					}
+				}
+				&:focus {
+					box-shadow: none;
+				}
+			}
+			&__text {
+				display: block;
+				max-width: rem(341);
+				font-size: rem(12);
+				line-height: 1.01;
+				a {
+					text-decoration: underline;
+				}
+			}
+		}
 	}
 }
 
