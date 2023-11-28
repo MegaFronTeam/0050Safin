@@ -273,9 +273,9 @@ class JSCCommon {
 				data: data,
 			}).done(function (data) {
 
-				Fancybox.close();
-				Fancybox.show([{ src: "#modal-thanks", type: "inline" }]);
-				// window.location.replace("/thanks.html");
+				// Fancybox.close();
+				// Fancybox.show([{ src: "#modal-thanks", type: "inline" }]);
+				window.location.replace("/thanks");
 				setTimeout(function () {
 					// Done Functions
 					th.trigger("reset");
