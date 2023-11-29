@@ -18,6 +18,16 @@
 		z-index: -1;
 		position: absolute;
 		bottom: calc(var(--sPB) * -1);
+		max-width: rem(400);
+		@include media-breakpoint-up(md) {
+			max-width: rem(612);
+		}
+		@include media-breakpoint-up(lg) {
+			max-width: rem(810);
+		}
+		@include media-breakpoint-up(xl) {
+			max-width: none;
+		}
 		@include media-breakpoint-down(sm) {
 			text-align: center;
 			width: 100%;

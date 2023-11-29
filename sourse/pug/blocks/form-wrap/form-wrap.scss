@@ -16,6 +16,9 @@
 		width: 100%;
 		display: block;
 	}
+	.form-select {
+		padding-right: rem(45);
+	}
 	&__policy {
 		max-width: max-content;
 		margin-bottom: rem(0);
