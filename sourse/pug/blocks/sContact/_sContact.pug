@@ -9,7 +9,8 @@ mixin sContact(order)
 			+form-wrap(order)
 				+input('Ваше имя', 'text','name')
 				+input('Удобный способ связи', 'select')
-				+input('Ваши контактные данные', 'tel')(required)
+				+input('Ваши контактные данные', 'tel').phone-new.input-js.active(required)
+				+input('Ваша почта', 'email').input-js(required)
 				//- .phone-new
 				+e.btn.btn.btn-outline-primary(type="submit") Отправить
 				+policy()

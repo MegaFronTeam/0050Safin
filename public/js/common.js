@@ -62,6 +62,25 @@ function eventHandler() {
 
 	// });
 
+	
+	let select = document.querySelector('.sContact .form-wrap__input.form-select');
+	let inputJs = document.querySelectorAll('.sContact .form-wrap__input.input-js');
+	if(select && inputJs.length > 0)
+	select.addEventListener('change', () => {
+		if (select.selectedIndex == 4) {
+			inputJs[1].classList.add('active');
+			inputJs[1].setAttribute('required', 'required');
+			
+			inputJs[0].classList.remove('active');
+			inputJs[0].removeAttribute('required', 'required');
+		} else {
+			inputJs[0].classList.add('active');
+			inputJs[0].setAttribute('required', 'required');
+
+			inputJs[1].classList.remove('active');
+			inputJs[1].removeAttribute('required', 'required');
+		}
+	});
 };
 if (document.readyState !== 'loading') {
 	eventHandler();
